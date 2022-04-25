@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['tailus.io','www.inventicons.com','icon-library.com'],
+    domains: ['tailus.io','www.inventicons.com','icon-library.com','www.freepik.com','www.kindpng.com'],
   },
 }
 

@@ -30,7 +30,7 @@ export const Card = () => {
         </div>
       </div>
 
-      <div className="h-72 w-80 rounded bg-white shadow-xl cursor-pointer">
+      <div className="h-72 w-80 rounded bg-white shadow-xl cursor-pointer" onClick={()=> router.push('/client/Tickets')}>
         <div className="w-full text-center">
           <Image width="150px" height="150px" src="https://www.inventicons.com/uploads/iconset/2348/wm/512/Ticket-13.png" alt='Tickets'/>
         </div>

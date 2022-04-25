@@ -4,7 +4,6 @@ import { useMediaQuery } from "react-responsive";
 import { DropList } from "./DropList";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 export const Search = () => {
-
   const [keyword, setKeyword] = useState("");
   const [hidden, setHidden] = useState(false);
   const [cte, setCategory] = useState([]);
@@ -41,20 +40,17 @@ export const Search = () => {
   };
 
   return (
-    <div className="max-w-xl w-11/12 py-4 rounded bg-white px-4 flex items-center relative">
-      <FontAwesomeIcon icon={faSearch} className="text-lg text-gray-500" />
-      <input
-        type="text"
-        placeholder="Search..."
-        className="px-5 ml-3 w-96 md:ml-1 outline-none "
-        onChange={getSearchedValue}
-      />
-      {cte == '' ? (
-        ''
-      ) : (
-        <DropList category={cte}/>
-      
-      )}
-    </div>
+    <>
+      <div className="max-w-xl w-11/12 py-4 rounded bg-white px-4 flex items-center relative">
+        <FontAwesomeIcon icon={faSearch} className="text-lg text-gray-500" />
+        <input
+          type="text"
+          placeholder="Search..."
+          className="px-5 ml-3 w-96 md:ml-1 outline-none "
+          onChange={getSearchedValue}
+        />
+        {cte == "" ? "" : <DropList category={cte} />}
+      </div>
+    </>
   );
 };

@@ -5,6 +5,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cookies from "js-cookie";
 import toast from "react-hot-toast";
+import { useRouter } from "next/router";
 
 const category = [
   { id: 1, category: "Product Problem" },
@@ -22,7 +23,10 @@ export const NewTickets = () => {
   const [title, setTitle] = useState("");
   const [ticketProblem, setTicketProblem] = useState("");
   const id = Cookies.get("id");
-  const categorySearch = sessionStorage.getItem('category')
+  const categorySearch = sessionStorage.getItem("category");
+
+  const router = useRouter();
+
   const saveForm = () => {
     if (title !== "" && ticketProblem !== "") {
       if (ticketProblem.length < 20) {
@@ -31,9 +35,15 @@ export const NewTickets = () => {
         RequestCreator(
           "POST",
           "http://127.0.0.1:8000/api/createTicket",
-          `Ticket_Title=${title}&ticket_text=${ticketProblem}&clients_id=${id}&category=${dropText == '' ? categorySearch : dropText}`
+          `Ticket_Title=${title}&ticket_text=${ticketProblem}&clients_id=${id}&category=${
+            dropText == "" ? categorySearch : dropText
+          }`
         );
+
         setIsOpen(!isOpen);
+        // setTimeout(() => {
+        //   router.reload();
+        // }, 1);
       }
     } else {
       toast.error("All fields are required");
@@ -56,7 +66,9 @@ export const NewTickets = () => {
               {dropText}
             </h1>
           ) : (
-            <h1 className="p-2 text-white font-SansS ml-4 text-sm">{categorySearch ? categorySearch : '' }</h1>
+            <h1 className="p-2 text-white font-SansS ml-4 text-sm">
+              {categorySearch ? categorySearch : ""}
+            </h1>
           )}
 
           <FontAwesomeIcon
