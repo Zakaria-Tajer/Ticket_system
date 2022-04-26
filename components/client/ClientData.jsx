@@ -27,7 +27,7 @@ export const ClientData = () => {
   }, []);
 
   return (
-    <div className="bg-gray-700 ml-2 w-1/4 flex justify-center flex-col space-y-4">
+    <div className="bg-gray-700 lg:ml-2 w-full max-h-96 md:mr-2 rounded-md lg:w-1/4 flex justify-center flex-col space-y-4">
       <div className="w-36 h-36 bg-white rounded-full mt-6 mx-auto">
         <Image 
             src='https://www.kindpng.com/picc/m/495-4952816_user-list-add-new-user-icon-hd-png.png'

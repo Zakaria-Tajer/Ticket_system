@@ -4,8 +4,8 @@ import { useRouter } from 'next/router'
 export const Card = () => {
     const router = useRouter()
   return (
-    <div className="flex md:mt-16 flex-col md:flex-row md:flex md:h-80 items-center justify-center md:-translate-y-32 bg-gray-900">
-      <div className="h-72 w-80 rounded bg-white shadow-xl cursor-pointer">
+    <div className="flex md:mt-16 flex-col md:flex-row md:flex md:h-80 items-center justify-center md:-translate-y-32 ">
+      <div className="h-72 w-80 rounded bg-white shadow-xl cursor-pointer" onClick={()=> router.push('/client/Tickets')}>
         <div className="w-full text-center">
           <Image
             width="150px"

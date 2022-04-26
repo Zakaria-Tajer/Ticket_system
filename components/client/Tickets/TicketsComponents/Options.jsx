@@ -11,9 +11,12 @@ export const Options = ({ TicketUniqueId }) => {
   const deleteTicket = () => {
     console.log(TicketUniqueId)
     RequestCreator('POST', 'http://127.0.0.1:8000/api/DeleteTicket', `unique_id=${TicketUniqueId}`)
-    setTimeout(() => {
-      router.reload();
-    }, 1);
+
+  };
+  const closeTicket = () => {
+    console.log(TicketUniqueId)
+    RequestCreator('POST', 'http://127.0.0.1:8000/api/ClosingTickets', `unique_id=${TicketUniqueId}`,'','','data')
+
   };
   return (
     <div className="relative ml-auto mr-3">
@@ -24,7 +27,7 @@ export const Options = ({ TicketUniqueId }) => {
             <a onClick={deleteTicket}>Delete</a>
           </li>
           <li className="cursor-pointer rounded-md list-none py-2 pl-2 font-SansS hover:bg-gray-300 hover:duration-700">
-            <a>Close</a>
+            <a onClick={closeTicket}>Close</a>
           </li>
         </div>
       ) : (

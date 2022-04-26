@@ -1,9 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import { Navbar } from "@/components/Layout/Navbar";
+import Head from "next/head";
 import React from "react";
 export default function About() {
   return (
     <>
+    <Head>
+      <title>About Page</title>
+    </Head>
       <Navbar />
       <div className="flex items-center  justify-center max-h-screen">
         <div className="py-16">

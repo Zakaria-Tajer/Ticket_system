@@ -16,7 +16,7 @@ export const TicketFooter = ({problem, status}) => {
         if (req.status === 200) {
           let data = JSON.parse(req.response);
           // console.log(data);
-          const { username,id,email } = data
+          const { username,id } = data
           console.log(id);
           setUsername(username)
 ;
@@ -31,17 +31,17 @@ export const TicketFooter = ({problem, status}) => {
   }, []);
 
   return (
-    <div className="bg-gray-700 flex py-2">
-      <div className="w-1/3 flex ml-4 space-x-4 items-center">
-        <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+    <div className="bg-gray-700 md:flex py-2 md:h-auto h-28 space-y-3">
+      <div className="md:w-1/3 flex justify-center md:justify-start ml-4 space-x-4 items-center">
+        <div className="md:w-8 md:h-8 w-10 h-10 bg-white rounded-full flex items-center justify-center">
           <FaUser className="text-gray-400"/>
         </div>
         <h1 className="text-white font-poppins">{username}</h1>
       </div>
-      <div className="flex ml-auto w-full text-white rounded-md py-3 space-x-20 mr-3">
-        <h1 className="font-poppins flex">Problem: <p className="ml-2 underline underline-offset-2">{problem}</p></h1>
+      <div className="flex justify-center md:justify-start ml-auto w-full text-white rounded-md py-3 pl-2 lg:space-x-20 mr-3">
+        <h1 className="font-poppins text-center text-sm">Problem: <span className="ml-2 underline underline-offset-2">{problem}</span></h1>
         <div className="px-10 rounded-md flex items-center">
-        <h1 className="font-poppins flex">Status: <p className="ml-2 underline underline-offset-2">{status}</p></h1>
+        <h1 className="font-poppins text-center">Status: <span className="ml-2 underline underline-offset-2">{status}</span></h1>
         </div>
       </div>
     </div>

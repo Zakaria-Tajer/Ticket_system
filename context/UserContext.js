@@ -10,3 +10,5 @@ export const TicketContext = createContext('');
 
 export const DataContext = createContext([]);
 
+export const ClosedTicketsContext = createContext([]);
+

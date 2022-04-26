@@ -2,7 +2,7 @@ import { UserContext } from 'context/UserContext'
 import React, { FC, useContext, useState } from 'react'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/router'
-import RequestCreator from 'lib/RequestCreator'
+import {RequestCreator} from 'lib/RequestCreator'
 
 export const Register = () => {
   const { hidden, setHidden } = useContext(UserContext)
