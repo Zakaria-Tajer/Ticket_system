@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+## Frontend with NEXTJS and Tailwindcss
+
 First, run the development server:
 
 ```bash
