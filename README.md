@@ -21,8 +21,9 @@ You can start by navigating to `ticket_project/backend`
 php artisan serve
 ```
 ## Folder structure
-<!-- ![Alt text](/../<main>/[![Screenshot-52.png](https://i.postimg.cc/Hsf3KFzS/Screenshot-52.png)](https://postimg.cc/56SwQ7Zv) "Folder") -->
-![Screenshot]([![Screenshot-52.png](https://i.postimg.cc/Hsf3KFzS/Screenshot-52.png)])
+
+![Alt text](public/Screenshot-52.png "Optional title")
+
 
 
 
