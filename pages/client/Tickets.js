@@ -49,7 +49,7 @@ export default function Tickets() {
   useEffect(() => {
     const id = Cookies.get("id");
     const req = new XMLHttpRequest();
-    req.open("POST", "http://127.0.0.1:8000/api/TicketsAnswerd", true);
+    req.open("POST", "http://127.0.0.1:8000/api/TicketsAnsewerd", true);
     req.onload = () => {
       if (req.readyState === XMLHttpRequest.DONE) {
         if (req.status === 200) {

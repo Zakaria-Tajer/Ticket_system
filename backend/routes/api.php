@@ -39,5 +39,5 @@ Route::group(['midlleware' => ['auth:sanctum']], function () {
     Route::post('/ClosingTickets', [TicketController::class, 'closingTickets']);
     Route::post('/getUniqueIds', [TicketController::class, 'getUniqueId']);
     Route::post('/Respond', [TicketsResController::class, 'getResponse']);
-    Route::post('/TicketsAnswerd', [TicketsResController::class, 'ResponseTickets']);
+    Route::post('/TicketsAnsewerd', [TicketsResController::class, 'ResponseTickets']);
 });

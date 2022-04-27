@@ -28,40 +28,16 @@ php artisan serve
 
 ## API endpoints
 
-## Post
+## Register and login
 
-```bash
-For registration /register
-For Login /login
-```
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `POST`    | `/api/register`                         | Client register.                         |
+| `POST`    | `/api/login`                            | Client Login.                            |
 
 ## Protected Routes with Sanctum
 
 ## GET
-
-```bash
-GET All client details /user
-GET All Categories /getCategories
-GET All client tickets /allTickets
-GET All client closed tickets /closedTicket
-```
-
-## POST
-
-```bash
-Search for a category /search
-Create a category /Create
-Create a ticket /createTicket
-
-GET All tickets /Tickets
-Delete a ticket /DeleteTicket
-Close a ticket /ClosingTickets
-GET client unique_id /getUniqueIds
-Respond to client tickets /Respond
-GET answered tickets /TicketsAnswerd
-
-```
-
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
@@ -69,6 +45,20 @@ GET answered tickets /TicketsAnswerd
 | `GET`    | `/api/getCategories`                     | Retrieve all categories.                 |
 | `GET`    | `/api/allTickets`                        | Retrieve all client tickets.             |
 | `GET`    | `/api/closedTicket`                      | Retrieve all client closed tickets.      |
+
+
+## POST
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `POST`    | `/api/search`                           | Search for a category.                   |
+| `POST`    | `/api/Create`                           | Create a category.                       |
+| `POST`    | `/api/Tickets`                          | Retrieve all client tickets.             |
+| `POST`    | `/api/DeleteTicket`                     | Delete a ticket.                         |
+| `POST`    | `/api/ClosingTickets`                   | Retrieve all client closed tickets.      |
+| `POST`    | `/api/getUniqueIds`                     | Retrieve all client unique id.           |
+| `POST`    | `/api/Respond`                          | Respond to a client ticket.              |
+| `POST`    | `/api/TicketsAnswerd`                   | Retrieve all client answered unique id.  |
 
 
 
