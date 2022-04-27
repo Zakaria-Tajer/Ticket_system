@@ -22,7 +22,7 @@ php artisan serve
 ```
 ## Folder structure
 
-![Alt text](public/Screenshot-52.png "Optional title")
+![Alt text](public/Screenshot%20(52).png "Optional title")
 
 
 
