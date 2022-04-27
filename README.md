@@ -61,3 +61,14 @@ Respond to client tickets /Respond
 GET answered tickets /TicketsAnswerd
 
 ```
+
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `GET`    | `/api/user`                              | Retrieve all user data.                  |
+| `GET`    | `/api/getCategories`                     | Retrieve all categories.                 |
+| `GET`    | `/api/allTickets`                        | Retrieve all client tickets.             |
+| `GET`    | `/api/closedTicket`                      | Retrieve all client closed tickets.      |
+
+
+
