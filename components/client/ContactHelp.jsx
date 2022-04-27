@@ -16,11 +16,10 @@ export const ContactHelp = () => {
           </h1>
           <p className="text-[#002D62] font-SansS text-md">
             if you have any questions or <br></br>need any support, please
-            don&apos;t<br></br>hestitae to contact our friendly<br></br>support
-            team.
+            don&apos;t<br></br>check out FAQ&apos;S
           </p>
-          <button className="bg-blue-600 w-44 py-3 hover:bg-blue-800 hover:duration-700 rounded text-white font-SansS" onClick={()=> router.push('/client/contacts')}>
-            Contact us
+          <button className="bg-blue-600 w-44 py-3 hover:bg-blue-800 hover:duration-700 rounded text-white font-SansS" onClick={()=> router.push('/client/fqs')}>
+            Check it
           </button>
         </div>
         <div className="md:w-3/5  max-w-xs">

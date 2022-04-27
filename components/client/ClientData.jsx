@@ -13,9 +13,11 @@ export const ClientData = () => {
       if (req.readyState === XMLHttpRequest.DONE) {
         if (req.status === 200) {
           let data = JSON.parse(req.response);
-          const { username, email } = data;
+          console.log(data);
+          const { username, email,id } = data;
           setUsername(username);
           setEmail(email);
+          Cookies.set('id', id)
         }
       }
     };

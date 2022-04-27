@@ -10,11 +10,11 @@ export default function Home() {
 
   return (
     <UserContext.Provider value={{ hidden, setHidden }}>
-      <div className="block min-h-screen bg-white md:flex overflow-y-hidden">
-        <div className="w-full pt-36 md:w-[900px]">
+      <div className="block min-h-screen bg-white md:flex md:flex-col md:items-center  lg:flex lg:items-center lg:flex-row lg:justify-between overflow-y-hidden">
+        <div className="w-full md:w-[900px]">
           <Vector />
         </div>
-        <div className="flex h-screen w-3/4 items-center justify-center ">
+        <div className="flex h-screen max-w-xl lg:w-3/4 items-center justify-center ">
         {hidden ? <LoginForm /> : <Register />}
         </div>
       </div>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { FaUser } from 'react-icons/fa';
-import { InformationContext } from "context/UserContext";
 
 export const TicketFooter = ({problem, status}) => {
   const [username, setUsername] = useState('')
@@ -39,8 +38,8 @@ export const TicketFooter = ({problem, status}) => {
         <h1 className="text-white font-poppins">{username}</h1>
       </div>
       <div className="flex justify-center md:justify-start ml-auto w-full text-white rounded-md py-3 pl-2 lg:space-x-20 mr-3">
-        <h1 className="font-poppins text-center text-sm">Problem: <span className="ml-2 underline underline-offset-2">{problem}</span></h1>
-        <div className="px-10 rounded-md flex items-center">
+        <div className="px-10 rounded-md flex items-center space-x-4">
+        <h1 className="font-poppins text-center">Problem: <span className="ml-2 underline underline-offset-2">{problem}</span></h1>
         <h1 className="font-poppins text-center">Status: <span className="ml-2 underline underline-offset-2">{status}</span></h1>
         </div>
       </div>

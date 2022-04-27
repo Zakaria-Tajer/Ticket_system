@@ -24,7 +24,7 @@ export const LoginForm = () => {
               if(role == 'admin'){
                 Cookies.set('token', token);
                 Cookies.set('role', role);
-                router.push('/adminDashboard/dashboard/')
+                router.push('/adminDashboard')
               }else {
                 Cookies.set('token', token);
                 Cookies.set('role', role);
@@ -71,7 +71,7 @@ export const LoginForm = () => {
               <input
                 type="email"
                 placeholder=""
-                className="w-[450px] border-0 border-b-[1px] border-gray-400 py-3 px-5 outline-none focus:border-blue-600"
+                className="w-96 md:w-[450px] border-0 border-b-[1px] border-gray-400 py-3 px-5 outline-none focus:border-blue-600"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -80,7 +80,7 @@ export const LoginForm = () => {
               <input
                 type="password"
                 placeholder=""
-                className="w-[450px] border-0 border-b-[1px] border-gray-400 py-3 px-5 outline-none focus:border-blue-600"
+                className="w-96 md:w-[450px] border-0 border-b-[1px] border-gray-400 py-3 px-5 outline-none focus:border-blue-600"
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>

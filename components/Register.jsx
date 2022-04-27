@@ -1,45 +1,47 @@
-import { UserContext } from 'context/UserContext'
-import React, { FC, useContext, useState } from 'react'
-import toast from 'react-hot-toast'
-import { useRouter } from 'next/router'
-import {RequestCreator} from 'lib/RequestCreator'
+import { UserContext } from "context/UserContext";
+import React, { FC, useContext, useState } from "react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/router";
+import { RequestCreator } from "lib/RequestCreator";
 
 export const Register = () => {
-  const { hidden, setHidden } = useContext(UserContext)
+  const { hidden, setHidden } = useContext(UserContext);
 
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [passwordConfirmation, setPasswordConfirmation] = useState('')
-  const router = useRouter()
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const router = useRouter();
   const switchToLogin = () => {
-    setHidden(!hidden)
-  }
+    setHidden(!hidden);
+  };
   const submitRegister = () => {
     if (
-      username !== '' &&
-      email !== '' &&
-      password !== '' &&
-      passwordConfirmation !== ''
+      username !== "" &&
+      email !== "" &&
+      password !== "" &&
+      passwordConfirmation !== ""
     ) {
       if (password !== passwordConfirmation) {
-        toast.error('Password not matching')
+        toast.error("Password not matching");
+      } else if (password.length < 7 && passwordConfirmation < 7) {
+        toast.error("password is too short");
       } else {
         RequestCreator(
-          'POST',
-          'http://127.0.0.1:8000/api/register',
+          "POST",
+          "http://127.0.0.1:8000/api/register",
           `username=${username}&email=${email}&password=${password}&passwordConfirmation=${passwordConfirmation}`,
           router,
-          '/'
-        )
+          "/client"
+        );
       }
     } else {
-      toast.error('All fields are required')
+      toast.error("All fields are required");
     }
-  }
+  };
 
   return (
-    <div className="rounded bg-white p-6 shadow-xl">
+    <div className="rounded bg-white p-6 shadow-xl w-full md:px-10">
       <div className="space-y-3">
         <h1 className="text-center font-poppins text-4xl">Register</h1>
       </div>
@@ -53,7 +55,7 @@ export const Register = () => {
           <input
             type="text"
             placeholder=" "
-            className="w-[450px]  border-0 border-b-[1px] border-gray-400 py-3 px-5 outline-none focus:border-blue-600"
+            className="w-96 md:w-[450px]  border-0 border-b-[1px] border-gray-400 py-3 px-5 outline-none focus:border-blue-600"
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
@@ -63,18 +65,18 @@ export const Register = () => {
           <input
             type="email"
             placeholder=" "
-            className="w-[450px]  border-0 border-b-[1px] border-gray-400 py-3 px-5 outline-none focus:border-blue-600"
+            className="w-96 md:w-[450px]  border-0 border-b-[1px] border-gray-400 py-3 px-5 outline-none focus:border-blue-600"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
-        <div className="flex space-x-12">
+        <div className="md:flex md:space-x-12 space-y-4">
           <div className="">
             <label className="block text-gray-500">Password</label>
             <input
               type="password"
               placeholder=" "
-              className="w-[200px]  border-0 border-b-[1px] border-gray-400 py-3 px-5 outline-none focus:border-blue-600"
+              className="w-96 md:w-[200px]  border-0 border-b-[1px] border-gray-400 py-3 px-5 outline-none focus:border-blue-600"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
@@ -84,12 +86,12 @@ export const Register = () => {
             <input
               type="password"
               placeholder=" "
-              className="w-[200px]  border-0 border-b-[1px] border-gray-400 py-3 px-5 outline-none focus:border-blue-600"
+              className="w-96 md:w-[200px]  border-0 border-b-[1px] border-gray-400 py-3 px-5 outline-none focus:border-blue-600"
               onChange={(e) => setPasswordConfirmation(e.target.value)}
             />
           </div>
         </div>
-        
+
         <p className="font-poppins text-blue-700">
           Already Registered ?
           <button
@@ -108,5 +110,5 @@ export const Register = () => {
         </button>
       </form>
     </div>
-  )
-}
+  );
+};

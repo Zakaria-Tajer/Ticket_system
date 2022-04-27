@@ -11,11 +11,7 @@ export const Search = () => {
   let arr = [];
   const getSearchedValue = (e) => {
     setKeyword(e.target.value);
-    // RequestCreator(
-    //   'POST',
-    //   `http://127.0.0.1:8000/api/search`,
-    //   `keyword=${keyword}`
-    // )
+    
     const req = new XMLHttpRequest();
     req.open("POST", "http://127.0.0.1:8000/api/search", true);
     req.onload = () => {

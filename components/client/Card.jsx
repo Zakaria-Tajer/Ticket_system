@@ -20,7 +20,7 @@ export const Card = () => {
         </div>
       </div>
 
-      <div className="h-72 w-80 scale-110 rounded bg-white shadow-xl cursor-pointer" onClick={()=> router.push('/client/Cards/fqs')}>
+      <div className="h-72 w-80 scale-110 rounded bg-white shadow-xl cursor-pointer" onClick={()=> router.push('/client/fqs')}>
         <div className="w-full text-center">
           <Image width="150px" height="150px" src="https://icon-library.com/images/article-icon-png/article-icon-png-26.jpg" alt='articles'/>
         </div>

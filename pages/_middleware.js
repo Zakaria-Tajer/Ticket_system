@@ -7,16 +7,14 @@ export async function middleware(req) {
     const role = cookies.role
     const { pathname } = req.nextUrl
 
-    // console.log(token);
-
     if (pathname.includes('/adminDashboard') && role == 'admin' && token) {
         return NextResponse.next()
       } else if (pathname.includes('/client') && role == 'client_User' && token) {
         return NextResponse.next()
       } else if (pathname.includes('/client') && role == 'admin' && token) {
-        return NextResponse.redirect(new URL('/adminDashboard/dashboard', req.url))
+        return NextResponse.redirect(new URL('/adminDashboard/', req.url))
       } else if (
-        pathname.includes('/adminDashboard/dashboard') &&
+        pathname.includes('/adminDashboard') &&
         role == 'client_User' &&
         token
       ) {
@@ -29,7 +27,7 @@ export async function middleware(req) {
       } else if (pathname.includes('/') && role == 'client_User' && token) {
         return NextResponse.redirect(new URL('/client', req.url))
       } else if (pathname.includes('/') && role == 'admin' && token) {
-        return NextResponse.redirect(new URL('/adminDashboard/dashboard', req.url))
+        return NextResponse.redirect(new URL('/adminDashboard', req.url))
       } else if (pathname.includes(`/${req.url}`)) {
         return NextResponse.redirect(new URL('/404', req.url))
       }
