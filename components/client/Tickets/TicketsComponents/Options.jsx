@@ -27,7 +27,7 @@ export const Options = ({ TicketUniqueId }) => {
             <a onClick={deleteTicket}>Delete</a>
           </li>
           <li className="cursor-pointer rounded-md list-none py-2 pl-2 font-SansS hover:bg-gray-300 hover:duration-700">
-            <a onClick={closeTicket}>Close</a>
+            <a onClick={closeTicket}>Solved</a>
           </li>
         </div>
       ) : (

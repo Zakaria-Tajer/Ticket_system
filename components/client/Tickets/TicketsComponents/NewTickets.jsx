@@ -41,6 +41,8 @@ export const NewTickets = () => {
         );
 
         setIsOpen(!isOpen);
+
+        router.reload()
       }
     } else {
       toast.error("All fields are required");
