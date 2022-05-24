@@ -71,4 +71,10 @@ class TicketController extends Controller
         return $unique_id;
     }
 
+    public function getAdminRespondedTickets()
+    {
+        $data = DB::table('resps')->get();    
+        return json_decode($data);
+    }
+
 }

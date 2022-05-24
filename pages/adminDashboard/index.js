@@ -6,6 +6,7 @@ import { useMediaQuery } from "react-responsive";
 
 import Image from "next/image";
 import { Logout } from "@/components/Layout/Logout";
+import { AllRespTickets } from "@/components/admin/AllRespTickets";
 export async function getServerSideProps() {
   const data = await fetch("http://127.0.0.1:8000/api/allTickets");
   const response = await data.json();
@@ -17,7 +18,8 @@ export async function getServerSideProps() {
 
 function Home({ response }) {
   const isTabletOrMobile = useMediaQuery({ query: "(min-width: 1440px)" });
-
+  const [isOpen,setIsOpen] = useState(false)
+  const [resp,setResp] = useState([])
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   useEffect(() => {
@@ -41,21 +43,46 @@ function Home({ response }) {
     req.setRequestHeader("Authorization", `Bearer ${cookie}`);
     req.send();
   }, []);
+
+  const getResposndedTickets = () => {
+    const cookie = Cookies.get("token");
+    const req = new XMLHttpRequest();
+    req.open("POST", "http://127.0.0.1:8000/api/TicketAdminResp", true);
+    req.onload = () => {
+      if (req.readyState === XMLHttpRequest.DONE) {
+        if (req.status === 200) {
+          let data = JSON.parse(req.response);
+          console.log(data);
+          setResp(data)
+          
+          setIsOpen(!isOpen)
+        }
+      }
+    };
+    req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    req.setRequestHeader("Accept", "application/json");
+    req.setRequestHeader("Access-Control-Allow-Origin", "*");
+    req.setRequestHeader("Authorization", `Bearer ${cookie}`);
+    req.send();
+  }
   return (
     <div className="bg-[#F4F5FA] min-h-screen">
       <Head>
         <title>Dashboard</title>
       </Head>
-      <div className=" h-20 flex items-center justify-between">
+      <div className="h-20 flex items-center ">
         <h1 className="ml-4 font-poppins text-xl">Tickets Dashboard</h1>
-        <div className="flex mr-3 shadow-md bg-blue-900 rounded">
+        <div className="mr-3 shadow-md bg-[#F4F5FA] space-x-4 rounded ml-auto">
+          <button className="ml-auto w-44  border-[1px] rounded bg-blue-900 border-blue-500 py-2 font-poppins text-white" onClick={getResposndedTickets}>
+            Responded tickets
+          </button>
           <Logout />
         </div>
       </div>
       <div className="xl:flex xl:space-x-20">
         {isTabletOrMobile ? (
           <>
-            <TicketsTable TicketsData={response} />
+            {isOpen ? <AllRespTickets data={resp}/> : <TicketsTable TicketsData={response} />}
             <div className="bg-gray-700  w-full mt-14 max-h-96 md:mr-2 rounded-md lg:w-1/4 flex justify-center flex-col space-y-4">
               <div className="w-36 h-36 bg-white rounded-full mt-6 mx-auto">
                 <Image
@@ -95,7 +122,8 @@ function Home({ response }) {
                 <h1 className="text-white font-poppins">Email: {email}</h1>
               </div>
             </div>
-            <TicketsTable TicketsData={response} />
+            {isOpen ? <AllRespTickets /> : <TicketsTable TicketsData={response} />}
+            
           </>
         )}
       </div>

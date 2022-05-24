@@ -14,7 +14,7 @@ export const Logout = () => {
   return (
       <button
         onClick={logout}
-        className="w-32 border-[1px] rounded border-blue-500 py-2 font-poppins text-white"
+        className="w-32 border-[1px] rounded bg-blue-900 border-blue-500 py-2 font-poppins text-white"
       >
         Logout
       </button>
