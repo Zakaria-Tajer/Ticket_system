@@ -73,7 +73,12 @@ class TicketController extends Controller
 
     public function getAdminRespondedTickets()
     {
-        $data = DB::table('resps')->get();    
+        // $data = DB::table('resps')->get();    
+        
+        return $data = DB::table('resps')
+        ->join('tickets', 'resps.response_ticket_id',"=",'tickets.id')
+        // ->limit(1)
+        ->get();
         return json_decode($data);
     }
 
